@@ -1,0 +1,25 @@
+<div id='container' ng-controller='photoController'>
+	<div class="row">
+		<div class="border col-sm-4">
+			<table class="table table-sm">
+				<thead class="bg-success">
+					<th>Images</th>
+				</thead>
+				<tr ng-repeat='image in ctlImages' class="bg-primary">
+					<td ng-click="showImage(image)">{{image.title}}</td>
+				</tr>
+			</table>
+		</div>
+		<div class="border col-sm-4">
+			<img id='photoImage' src={{selectedImage.image}} height=400px width=400px>
+				<p>Title: {{selectedImage.title}} &nbsp; &nbsp; &nbsp; Rating: {{selectedImage.rating}}
+			<div class="dropdown">
+		    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Rating
+		    <span class="caret"></span></button>
+		    <ul class="dropdown-menu">
+		      <li  ng-repeat='rate in rating' ng-click='saveRating(selectedImage.title, rate)'>{{rate}}</li>
+		    </ul>
+  	</div>
+  	</div>
+	</div>
+</div>
